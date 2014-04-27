@@ -7,7 +7,9 @@ Luke Hudson <github@speak.geek.nz>
 
 Place the following *.idx* and *.py* files from this package within your Inkscape extensions directory.
 Then reload Inkscape. You should see new options in the menus: `Extensions > Animation > Onionskin`
-### Files to copy to extensions directory (**Not** a subdirectory thereof)
+### Files to copy to extensions directory
+**Note** This didn't work for me within a subdirectory of extensions, I had to put the files directly in place.
+
 - `nzgsonionskin.idx`
 - `nzgsonionskin.py`
 
@@ -44,3 +46,9 @@ If you already have a custom keys file, simply add two lines at the end (as show
    <bind key="L" modifiers="Alt,Shift" action="nz.geek.speak.animation" />
 ~~~
 
+You may also wish to have a handy shortcut for repeating the last extension effect.  This is handy for onionskin as it doesn't show the dialog again.
+
+~~~xml
+ <bind key="l" modifiers="Ctrl,Alt,Shift" action="EffectLast" />
+ <bind key="L" modifiers="Ctrl,Alt,Shift" action="EffectLast" />
+~~~
