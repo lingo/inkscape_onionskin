@@ -52,3 +52,7 @@ You may also wish to have a handy shortcut for repeating the last extension effe
  <bind key="l" modifiers="Ctrl,Alt,Shift" action="EffectLast" />
  <bind key="L" modifiers="Ctrl,Alt,Shift" action="EffectLast" />
 ~~~
+
+## Screenshots
+
+![Onionskin properties window](http://i.imgur.com/c1AXcdv.jpg)
