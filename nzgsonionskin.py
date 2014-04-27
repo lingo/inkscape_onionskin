@@ -49,13 +49,15 @@ class Onionskin(inkex.Effect):
 
         # Hide any layers above the current one
         for i in range(len(layers)-1, current_index, -1):
+            self.set_layer_opacity(layers[i], 1)
             self.hide_layer(layers[i])
 
         self.show_layer(current, full_opaque=True)
 
         # Fade out layers below current
-        opacity = self.options.onion_base / 100.0
-        fade_factor = 1.0  / (self.options.onion_layers+1)
+        onion_base  = self.options.onion_base / 100.0
+        opacity     = onion_base
+        fade_factor = onion_base / (self.options.onion_layers)
 
         self.debug("start at index %d, %.2f, fading by %.2f" % (current_index-1,opacity, fade_factor))
 
