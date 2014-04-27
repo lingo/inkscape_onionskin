@@ -27,6 +27,18 @@ This plugin provides a method of ['onion-skinning'](http://en.wikipedia.org/wiki
 
 Run the plugin and it will hide any layers above the current layer, make the current layer fully opaque and progressively fade out previous layers.
 
+### Steps to try out the plugin
+
+0. Create a new document in Inkscape
+1. Create a basic shape
+2. Open the layers palette (Menu: `Layer -> Layers...`)
+3. Select the layer containing the shape you created (Typically: `Layer `)
+4. Duplicate this layer above and make a change to the shape
+5. Repeat the above step several times in order to have 4-5 layers
+6. Now select a layer and run the plugin
+7. You should now see that the other layers are 'ghosted'
+8. Each time you change layers, run the plugin to onionskin previous 'frames' (i.e. layers) (see [Keyboard shortcuts](#user-content-keyboard-shortcuts) to make this easier)
+
 ## Keyboard shortcuts
 
 You can assign a keyboard shortcut to this plugin to make your life easier.
