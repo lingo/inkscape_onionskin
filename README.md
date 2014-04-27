@@ -38,15 +38,20 @@ The keys directory should be:
 - *Linux*: `~/.config/inkscape/keys` (or `/usr/share/inkscape/keys`)
 - *OS X*: `/Applications/Inkscape.app/Contents/Resources/keys`
 
-If you already have a custom keys file, simply add two lines at the end (as shown below) before the `</keys>` tag.
+If you already have a custom keys file, simply add the following lines at the end (as shown below) before the `</keys>` tag.
 
+These lines bind `Alt+Shift+L` to run the plugin, showing the dialog.
+`Ctrl+Alt+Shift+L` will run the plugin without showing the dialog.
 
 ~~~xml
-   <bind key="l" modifiers="Alt,Shift" action="nz.geek.speak.animation" display="true"/>
-   <bind key="L" modifiers="Alt,Shift" action="nz.geek.speak.animation" />
+   <bind key="l" modifiers="Alt,Shift" action="nz.geek.speak.onionskin" display="true"/>
+   <bind key="L" modifiers="Alt,Shift" action="nz.geek.speak.onionskin" />
+
+   <bind key="l" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" display="true"/>
+   <bind key="L" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" />
 ~~~
 
-You may also wish to have a handy shortcut for repeating the last extension effect.  This is handy for onionskin as it doesn't show the dialog again.
+You may also wish to have a handy shortcut for repeating the last effect used, without showing a dialog.  This is not specific to Onionskin.
 
 ~~~xml
  <bind key="l" modifiers="Ctrl,Alt,Shift" action="EffectLast" />
