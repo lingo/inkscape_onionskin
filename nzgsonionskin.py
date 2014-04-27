@@ -1,3 +1,7 @@
+#
+# @author Luke Hudson <github@speak.geek.nz>
+# @license GPLv2 See LICENCE file
+#
 import sys, inkex, simplestyle
 import gettext
 _ = gettext.gettext
