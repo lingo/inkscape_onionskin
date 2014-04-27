@@ -4,7 +4,7 @@
   <id>nz.geek.speak.onionskin</id>
   <dependency type="executable" location="extensions">inkex.py</dependency>
   <dependency type="executable" location="extensions">simplestyle.py</dependency>
-  <dependency type="executable" location="extensions">nzgeekspeak_onionskin.py</dependency>
+  <dependency type="executable" location="extensions">nzgsonionskin.py</dependency>
   <param name="onion-layers" type="int" _gui-text="Visible onionskin layers">2</param>
   <param name="onion-base" type="int" min="1" max="100" _gui-text="First onionskin opacity">70</param>
   <param name="onion-clear" type="boolean" _gui-text="Remove onionskin (show all layers 100% opaque)">false</param>
@@ -15,6 +15,6 @@
       </effects-menu>
   </effect>
   <script>
-    <command reldir="extensions" interpreter="python">nzgeekspeak_onionskin.py</command>
+    <command reldir="extensions" interpreter="python">nzgsonionskin.py</command>
   </script>
 </inkscape-extension>
