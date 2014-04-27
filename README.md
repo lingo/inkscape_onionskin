@@ -8,8 +8,8 @@ Luke Hudson <github@speak.geek.nz>
 Place the following *.idx* and *.py* files from this package within your Inkscape extensions directory.
 Then reload Inkscape. You should see new options in the menus: `Extensions > Animation > Onionskin`
 ### Files to copy to extensions directory (**Not** a subdirectory thereof)
-- `nz.geek.speak.onionskin.idx`
-- `nz.geek.speak.onionskin.py`
+- `nzgsonionskin.idx`
+- `nzgsonionskin.py`
 
 See also [Keyboard shortcuts](#user-content-keyboard-shortcuts)
 
