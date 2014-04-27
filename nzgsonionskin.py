@@ -36,7 +36,9 @@ class Onionskin(inkex.Effect):
             return
 
         if self.options.onion_clear:
-            [self.show_layer(l, full_opaque=True) for l in layers]
+            for l in layers:
+                self.show_layer(l, full_opaque=True)
+                self.set_layer_lock(l, unlock=True)
             return
 
         # Determine the index of the current layer
@@ -55,8 +57,11 @@ class Onionskin(inkex.Effect):
         for i in range(len(layers)-1, current_index, -1):
             self.set_layer_opacity(layers[i], 1)
             self.hide_layer(layers[i])
+            self.set_layer_lock(layers[i])
 
         self.show_layer(current, full_opaque=True)
+        self.set_layer_lock(current, unlock=True)
+
 
         # Fade out layers below current
         onion_base  = self.options.onion_base / 100.0
@@ -66,12 +71,14 @@ class Onionskin(inkex.Effect):
         self.debug("start at index %d, %.2f, fading by %.2f" % (current_index-1,opacity, fade_factor))
 
         for i in range(current_index-1, -1, -1):
+            layer = layers[i]
+            self.set_layer_lock(layer)
             if opacity <= 0:
-                self.set_layer_opacity(layers[i], 1)
-                self.hide_layer(layers[i])
+                self.set_layer_opacity(layer, 1)
+                self.hide_layer(layer)
             else:
-                self.set_layer_opacity(layers[i], opacity)
-                self.show_layer(layers[i])
+                self.set_layer_opacity(layer, opacity)
+                self.show_layer(layer)
             opacity -= fade_factor
 
     def get_layer_name(self, layer):
@@ -91,6 +98,17 @@ class Onionskin(inkex.Effect):
     def set_layer_opacity(self, layer, opacity):
         self.debug('set_layer_opacity "%s" %.2f' % (self.get_layer_name(layer), opacity))
         self.modify_layer_style(layer, {"opacity": opacity})
+
+    def set_layer_lock(self, layer, unlock=False):
+        insensitive = inkex.addNS('insensitive', 'sodipodi')
+        if unlock:
+            try:
+                del layer.attrib[insensitive]
+            except KeyError, e:
+                pass
+        else:
+            layer.attrib[insensitive] = 'true'
+
 
     def hide_layer(self, layer):
         self.debug('hide_layer "%s"' % self.get_layer_name(layer))
