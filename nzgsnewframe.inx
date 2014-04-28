@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Add new frame</_name>
+  <id>nz.geek.speak.inkscape.newframe</id>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+  <dependency type="executable" location="extensions">simplestyle.py</dependency>
+  <dependency type="executable" location="extensions">nzgs.py</dependency>
+  <dependency type="executable" location="extensions">nzgsonionskin.py</dependency>
+  <dependency type="executable" location="extensions">nzgsnewframe.py</dependency>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+      <menu-tip>This adds a new layer to the document on top of all others by duplicating the top-most layer.  The onion-skin effectis then applied</menu-tip>
+      <effects-menu>
+        <submenu _name="Animation"/>
+      </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">nzgsnewframe.py</command>
+  </script>
+</inkscape-extension>
