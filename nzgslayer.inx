@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Layers actions</_name>
+  <id>nz.geek.speak.inkscape.layers</id>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+  <dependency type="executable" location="extensions">simplestyle.py</dependency>
+  <dependency type="executable" location="extensions">nzgs.py</dependency>
+  <dependency type="executable" location="extensions">nzgslayer.py</dependency>
+  <param name="layers-show-all" type="boolean" _gui-text="Show all layers">true</param>
+  <param name="layers-hide-all" type="boolean" _gui-text="Hide all layers">false</param>
+  <param name="layers-lock-all" type="boolean" _gui-text="Lock all layers">false</param>
+  <param name="layers-unlock-all" type="boolean" _gui-text="Unlock all layers">true</param>
+  <param name="layers-relabel" type="boolean" _gui-tip="This renames layers from 1 to N based on the order they appear in the layers palette. This prepares for exporting animation frames" _gui-text="Renumber frames">false</param>
+  <param name="layers-recursive" type="boolean" _gui-text="Act on sublayers too">false</param>
+  <effect needs-live-preview="false">
+      <effects-menu>
+        <submenu _name="Animation"/>
+      </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">nzgslayer.py</command>
+  </script>
+</inkscape-extension>
