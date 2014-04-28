@@ -8,9 +8,12 @@
   <dependency type="executable" location="extensions">nzgsonionskin.py</dependency>
   <param name="onion-layers" type="int" _gui-text="Visible onionskin layers">2</param>
   <param name="onion-base" type="int" min="1" max="100" _gui-text="First onionskin opacity">70</param>
+  <param name="onion-lock" type="boolean" _gui-text="Lock all layers except the active layer">true</param>
+  <param name="onion_clear_help" type="description" _gui-text="Help">The following option removes all transparency and shows and unlocks all layers.</param>
   <param name="onion-clear" type="boolean" _gui-text="Remove onionskin (show all layers 100% opaque)">false</param>
   <effect needs-live-preview="false">
     <object-type>all</object-type>
+      <menu-tip>Show the layers below the current as semi-transparent</menu-tip>
       <effects-menu>
         <submenu _name="Animation"/>
       </effects-menu>

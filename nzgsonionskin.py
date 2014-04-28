@@ -20,7 +20,13 @@ class Onionskin(nzgs.NZGSEffect):
         self.OptionParser.add_option("--onion-clear",
                         type="inkbool", dest="onion_clear", default=False, 
                         help="Overrides other options and removes all onionskins")
+        self.OptionParser.add_option("--onion-lock",
+                        type="inkbool", dest="onion_lock", default=False, 
+                        help="If true then non-active layers are locked")
 
+    def lock_layer(self, layer, unlock=False):
+        if self.options.onion_lock:
+            return self.set_layer_lock(layer, unlock=unlock)
 
     def effect(self):
         layers = self.get_layers()
@@ -35,7 +41,7 @@ class Onionskin(nzgs.NZGSEffect):
         if self.options.onion_clear:
             for l in layers:
                 self.show_layer(l, full_opaque=True)
-                self.set_layer_lock(l, unlock=True)
+                self.lock_layer(l, unlock=True)
             return
 
         # Determine the index of the current layer
@@ -54,10 +60,10 @@ class Onionskin(nzgs.NZGSEffect):
         for i in range(len(layers)-1, current_index, -1):
             self.set_layer_opacity(layers[i], 1)
             self.hide_layer(layers[i])
-            self.set_layer_lock(layers[i])
+            self.lock_layer(layers[i])
 
         self.show_layer(current, full_opaque=True)
-        self.set_layer_lock(current, unlock=True)
+        self.lock_layer(current, unlock=True)
 
 
         # Fade out layers below current
@@ -69,7 +75,7 @@ class Onionskin(nzgs.NZGSEffect):
 
         for i in range(current_index-1, -1, -1):
             layer = layers[i]
-            self.set_layer_lock(layer)
+            self.lock_layer(layer)
             if opacity <= 0:
                 self.set_layer_opacity(layer, 1)
                 self.hide_layer(layer)
