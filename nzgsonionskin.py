@@ -4,12 +4,13 @@
 #
 import sys, inkex, simplestyle
 import gettext
+import nzgs
 _ = gettext.gettext
 
 
-class Onionskin(inkex.Effect):
+class Onionskin(nzgs.NZGSEffect):
     def __init__(self):
-        inkex.Effect.__init__(self)
+        nzgs.NZGSEffect.__init__(self)
         self.OptionParser.add_option("--onion-layers",
                         type="int", dest="onion_layers", default=2, 
                         help="# of visible onion skin layers")
@@ -20,13 +21,9 @@ class Onionskin(inkex.Effect):
                         type="inkbool", dest="onion_clear", default=False, 
                         help="Overrides other options and removes all onionskins")
 
-    def debug(self, arg):
-        # print arg
-        # return inkex.debug(arg)
-        pass
 
     def effect(self):
-        layers = self.document.xpath('/svg:svg/svg:g[@inkscape:groupmode="layer"]', namespaces=inkex.NSS)
+        layers = self.get_layers()
         current = self.current_layer
         if current is None:
             self.debug('No current_layer found')
@@ -80,46 +77,6 @@ class Onionskin(inkex.Effect):
                 self.set_layer_opacity(layer, opacity)
                 self.show_layer(layer)
             opacity -= fade_factor
-
-    def get_layer_name(self, layer):
-        return layer.attrib[inkex.addNS('label', 'inkscape')]
-
-    def modify_layer_style(self, layer, style):
-        if (layer.attrib.has_key('style')):
-            currentStyle = simplestyle.parseStyle(layer.attrib['style'])
-            for k,v in style.items():
-                if v == None and currentStyle.has_key(k):
-                    del currentStyle[k]
-                else:
-                    currentStyle[k] = style[k]
-            style = currentStyle
-        layer.attrib['style'] = simplestyle.formatStyle(style)
-
-    def set_layer_opacity(self, layer, opacity):
-        self.debug('set_layer_opacity "%s" %.2f' % (self.get_layer_name(layer), opacity))
-        self.modify_layer_style(layer, {"opacity": opacity})
-
-    def set_layer_lock(self, layer, unlock=False):
-        insensitive = inkex.addNS('insensitive', 'sodipodi')
-        if unlock:
-            try:
-                del layer.attrib[insensitive]
-            except KeyError, e:
-                pass
-        else:
-            layer.attrib[insensitive] = 'true'
-
-
-    def hide_layer(self, layer):
-        self.debug('hide_layer "%s"' % self.get_layer_name(layer))
-        self.modify_layer_style(layer, {"display": 'none'})
-
-    def show_layer(self, layer, full_opaque=False):
-        self.debug('show_layer "%s"' % self.get_layer_name(layer))
-        style = {"display": None}
-        if full_opaque:
-            style['opacity'] = 1
-        self.modify_layer_style(layer, style)
 
 if __name__ == '__main__':
     try:
