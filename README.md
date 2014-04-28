@@ -56,8 +56,8 @@ These lines bind `Alt+Shift+L` to run the plugin, showing the dialog.
 `Ctrl+Alt+Shift+L` will run the plugin without showing the dialog.
 
 ~~~xml
-   <bind key="l" modifiers="Alt,Shift" action="nz.geek.speak.onionskin" display="true"/>
-   <bind key="L" modifiers="Alt,Shift" action="nz.geek.speak.onionskin" />
+   <bind key="l" modifiers="Alt,Shift" action="nz.geek.speak.onionskin.noprefs" display="true"/>
+   <bind key="L" modifiers="Alt,Shift" action="nz.geek.speak.onionskin.noprefs" />
 
    <bind key="l" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" display="true"/>
    <bind key="L" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" />
