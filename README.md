@@ -1,17 +1,36 @@
-# Inkscape onionskin
+# Inkscape onionskin plugin (and others)
 
-## Author
-Luke Hudson <github@speak.geek.nz>
+## What's in the box?
+
+- [Onionskin plugin](#onionskin-plugin)
+- [Add frame plugin](#add-frame-plugin)
+- [Layers actions plugin](#layers-actions-plugin)
 
 ## Installation
 
-Place the following *.idx* and *.py* files from this package within your Inkscape extensions directory.
-Then reload Inkscape. You should see new options in the menus: `Extensions > Animation > Onionskin`
+Place the files as indicated below within your Inkscape extensions directory, then reload Inkscape. You should see new options in the menu: `Extensions > Animation > ...`
+
+
 ### Files to copy to extensions directory
+
+Copy the files shown under *Requirements*, then copy files for the plugins you want to activate, as shown below.
+
 **Note** This didn't work for me within a subdirectory of extensions, I had to put the files directly in place.
 
+#### Requirements
+- `nzgs.py`
+
+#### Onionskin
 - `nzgsonionskin.idx`
 - `nzgsonionskin.py`
+
+#### Add new frame
+- `nzgsnewframe.py`
+- `nsgsnewframe.inx`
+
+#### Layers actions
+- `nzgslayer.py`
+- `nzgslayer.inx`
 
 See also [Keyboard shortcuts](#user-content-keyboard-shortcuts)
 
@@ -20,7 +39,7 @@ This is probably one of the following:
 - *Linux*: `~/.config/inkscape/extensions` (or `/usr/share/inkscape/extensions`)
 - *OS X*: `/Applications/Inkscape.app/Contents/Resources/extensions`
 
-## Usage
+## Onionskin plugin
 I wrote this to make creation of animations easier in Inkscape.
 
 This plugin provides a method of ['onion-skinning'](http://en.wikipedia.org/wiki/Onion_skinning) using Inkscape's layer opacity.
@@ -37,11 +56,11 @@ Run the plugin and it will hide any layers above the current layer, make the cur
 5. Repeat the above step several times in order to have 4-5 layers
 6. Now select a layer and run the plugin
 7. You should now see that the other layers are 'ghosted'
-8. Each time you change layers, run the plugin to onionskin previous 'frames' (i.e. layers) (see [Keyboard shortcuts](#user-content-keyboard-shortcuts) to make this easier)
+8. Each time you change layers, run the plugin to onionskin previous 'frames' (i.e. layers) (see [Keyboard shortcuts](#keyboard-shortcuts) to make this easier)
 
 ## Keyboard shortcuts
 
-You can assign a keyboard shortcut to this plugin to make your life easier.
+You can assign a keyboard shortcut to these plugin to make your life easier.
 To do this, you can copy the `default.xml` file from this package into the inkscape *keys* directory and change the key as desired.
 
 The keys directory should be:
@@ -62,6 +81,13 @@ These lines bind `Alt+Shift+L` to run the plugin, showing the dialog.
    <bind key="l" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" display="true"/>
    <bind key="L" modifiers="Ctrl,Alt,Shift" action="nz.geek.speak.onionskin" />
 ~~~
+
+### Actions
+These are the values you can use in `action` within the keyboard shortcuts file
+
+- `nz.geek.speak.onionskin` Onionskin plugin
+- `nz.geek.speak.inkscape.layers` Layers actions plugin
+- `nz.geek.speak.inkscape.newframe` New frame plugin
 
 You may also wish to have a handy shortcut for repeating the last effect used, without showing a dialog.  This is not specific to Onionskin.
 
