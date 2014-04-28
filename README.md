@@ -21,7 +21,7 @@ Copy the files shown under *Requirements*, then copy files for the plugins you w
 - `nzgs.py`
 
 #### Onionskin
-- `nzgsonionskin.idx`
+- `nzgsonionskin.inx`
 - `nzgsonionskin.py`
 
 #### Add new frame
