@@ -58,6 +58,15 @@ Run the plugin and it will hide any layers above the current layer, make the cur
 7. You should now see that the other layers are 'ghosted'
 8. Each time you change layers, run the plugin to onionskin previous 'frames' (i.e. layers) (see [Keyboard shortcuts](#keyboard-shortcuts) to make this easier)
 
+
+## Layers actions plugin
+
+This allows for some batch-operations on layers.  Handy when you are preparing an animation with many layers.
+
+## Add frame plugin
+
+This is a shortcut plugin to duplicate the topmost layer of your document, increment it's label (assuming it's a frame number), and setup onion-skinning.
+
 ## Keyboard shortcuts
 
 You can assign a keyboard shortcut to these plugin to make your life easier.
@@ -99,3 +108,4 @@ You may also wish to have a handy shortcut for repeating the last effect used, w
 ## Screenshots
 
 ![Onionskin properties window](http://i.imgur.com/c1AXcdv.jpg)
+![Layers actions window](http://i.imgur.com/FX9hupL.jpg)
