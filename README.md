@@ -107,5 +107,7 @@ You may also wish to have a handy shortcut for repeating the last effect used, w
 
 ## Screenshots
 
+### Onionskin settings
 ![Onionskin properties window](http://i.imgur.com/c1AXcdv.jpg)
 ![Layers actions window](http://i.imgur.com/Ci9qoas.jpg)
+### Layers actions settings
