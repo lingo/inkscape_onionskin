@@ -108,4 +108,4 @@ You may also wish to have a handy shortcut for repeating the last effect used, w
 ## Screenshots
 
 ![Onionskin properties window](http://i.imgur.com/c1AXcdv.jpg)
-![Layers actions window](http://i.imgur.com/FX9hupL.jpg)
+![Layers actions window](http://i.imgur.com/Ci9qoas.jpg)
