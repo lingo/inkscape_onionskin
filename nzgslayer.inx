@@ -6,10 +6,14 @@
   <dependency type="executable" location="extensions">simplestyle.py</dependency>
   <dependency type="executable" location="extensions">nzgs.py</dependency>
   <dependency type="executable" location="extensions">nzgslayer.py</dependency>
-  <param name="layers-show-all" type="boolean" _gui-text="Show all layers">true</param>
-  <param name="layers-hide-all" type="boolean" _gui-text="Hide all layers">false</param>
-  <param name="layers-lock-all" type="boolean" _gui-text="Lock all layers">false</param>
-  <param name="layers-unlock-all" type="boolean" _gui-text="Unlock all layers">true</param>
+  <param name="layers-show" type="enum" _gui-text="Visibility">
+    <item value="show">Show all layers</item>
+    <item value="hide">Hide all layers</item>
+  </param>
+  <param name="layers-lock" type="enum" _gui-text="Protection">
+    <item value="unlock">Unlock all layers</item>
+    <item value="lock">Lock all layers</item>
+  </param>
   <param name="layers-relabel" type="boolean" _gui-tip="This renames layers from 1 to N based on the order they appear in the layers palette. This prepares for exporting animation frames" _gui-text="Renumber frames">false</param>
   <param name="layers-recursive" type="boolean" _gui-text="Act on sublayers too">false</param>
   <effect needs-live-preview="false">

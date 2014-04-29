@@ -13,18 +13,12 @@ class NZGSLayer(nzgs.NZGSEffect):
 
     def __init__(self):
         nzgs.NZGSEffect.__init__(self)
-        self.OptionParser.add_option("--layers-show-all",
-                        type="inkbool", dest="show_all", default=True,
+        self.OptionParser.add_option("--layers-show",
+                        type="string", dest="show_all", default="show",
                         help="Show all layers")
-        self.OptionParser.add_option("--layers-hide-all",
-                        type="inkbool", dest="hide_all", default=False,
-                        help="Hide all layers")
-        self.OptionParser.add_option("--layers-lock-all",
-                        type="inkbool", dest="lock_all", default=False,
+        self.OptionParser.add_option("--layers-lock",
+                        type="string", dest="lock_all", default="unlock",
                         help="Lock all layers")
-        self.OptionParser.add_option("--layers-unlock-all",
-                        type="inkbool", dest="unlock_all", default=True,
-                        help="Unlock all layers")
         self.OptionParser.add_option("--layers-recursive",
                         type="inkbool", dest="recursive", default=False,
                         help="Act on sublayers too")
@@ -34,16 +28,22 @@ class NZGSLayer(nzgs.NZGSEffect):
 
     def effect(self):
         self.debug(self.options)
+        show_all = True
+        if self.options.show_all == "hide":
+            show_all = False
+        lock_all = False
+        if self.options.lock_all == "lock":
+            lock_all = True
         layers = self.get_layers(recursive = self.options.recursive)
         frameLabel = -1
         for layer in layers:
-            if self.options.show_all:
+            if show_all:
                 self.show_layer(layer)
-            elif self.options.hide_all:
+            else:
                 self.hide_layer(layer)
-            if self.options.lock_all:
+            if lock_all:
                 self.set_layer_lock(layer)
-            elif self.options.unlock_all:
+            else:
                 self.set_layer_lock(layer, unlock=True)
             if self.options.rename:
                 if self.is_toplevel_layer(layer):
