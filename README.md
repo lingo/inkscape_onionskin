@@ -34,9 +34,11 @@ Copy the files shown under *Requirements*, then copy files for the plugins you w
 
 See also [Keyboard shortcuts](#user-content-keyboard-shortcuts)
 
-This is probably one of the following:
-- *Windows*: `C:\Program Files\Inkscape\share\extensions`
-- *Linux*: `~/.config/inkscape/extensions` (or `/usr/share/inkscape/extensions`)
+### Destination folder
+You will have to copy these files into Inkscape's extensions directory, which will (probably) be one of the following folders:
+
+- *Windows*: `%APPDATA%\inkscape\extensions\` or `%ProgramFiles%\Inkscape\share\extensions`
+- *Linux*: `$HOME/.config/inkscape/extensions` (or `/usr/share/inkscape/extensions`)
 - *OS X*: `/Applications/Inkscape.app/Contents/Resources/extensions`
 
 ## Onionskin plugin
