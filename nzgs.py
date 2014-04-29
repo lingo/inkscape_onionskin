@@ -76,8 +76,9 @@ class NZGSEffect(inkex.Effect,object):
         if (layer.attrib.has_key('style')):
             currentStyle = simplestyle.parseStyle(layer.attrib['style'])
             for k,v in style.items():
-                if v == None and currentStyle.has_key(k):
-                    del currentStyle[k]
+                if v == None:
+                    if currentStyle.has_key(k):
+                        del currentStyle[k]
                 else:
                     currentStyle[k] = style[k]
             style = currentStyle
