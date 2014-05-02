@@ -112,4 +112,4 @@ You may also wish to have a handy shortcut for repeating the last effect used, w
 ### Onionskin settings
 ![Onionskin properties window](http://i.imgur.com/c1AXcdv.jpg)
 ### Layers actions settings
-![Layers actions window](http://i.imgur.com/Ci9qoas.jpg)
+![Layers actions window](http://i.imgur.com/btopFr5.jpg)
