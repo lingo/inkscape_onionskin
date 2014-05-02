@@ -6,14 +6,26 @@
   <dependency type="executable" location="extensions">simplestyle.py</dependency>
   <dependency type="executable" location="extensions">nzgs.py</dependency>
   <dependency type="executable" location="extensions">nzgslayer.py</dependency>
+  
   <param name="layers-show" type="enum" _gui-text="Visibility">
+    <item value="ignore">(no change)</item>
     <item value="show">Show all layers</item>
     <item value="hide">Hide all layers</item>
   </param>
+
   <param name="layers-lock" type="enum" _gui-text="Protection">
+    <item value="ignore">(no change)</item>
     <item value="unlock">Unlock all layers</item>
     <item value="lock">Lock all layers</item>
   </param>
+
+  <param name="opacity-tab" type="notebook">
+    <page name="opacity" _gui-text="Change Opacity">
+      <param name="layers-change-opacity" type="boolean" _gui-tip="Set the opacity of all layers" _gui-text="Affect layers' opacity">false</param>
+      <param name="layers-opacity" min="0" max="100" type="int" _gui-text="Set opacity (in %)" value="100" />
+    </page>
+  </param>
+
   <param name="layers-relabel" type="boolean" _gui-tip="This renames layers from 1 to N based on the order they appear in the layers palette. This prepares for exporting animation frames" _gui-text="Renumber frames">false</param>
   <param name="layers-recursive" type="boolean" _gui-text="Act on sublayers too">false</param>
   <effect needs-live-preview="false">
