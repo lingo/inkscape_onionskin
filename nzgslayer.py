@@ -68,7 +68,7 @@ class NZGSLayer(nzgs.NZGSEffect):
                 if not self.is_toplevel_layer(layer) and self.options.recursive:
                     depth = len(self.get_selector_path(layer)) - 1
                     name = name + '.' + str(depth)
-                key = inkex.addNS('label', 'inkscape')
+                key = self.addNS('label', 'inkscape')
                 layer.attrib[key] = name
 
 if __name__ == '__main__':

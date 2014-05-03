@@ -34,7 +34,7 @@ class Onionskin(nzgs.NZGSEffect):
         if current is None:
             self.debug('No current_layer found')
             return
-        if current.tag != inkex.addNS('g', 'svg'):
+        if current.tag != self.addNS('g', 'svg'):
             self.debug("current_layer wasn't a svg:g tag (Found %s)" % current.tag)
             return
 

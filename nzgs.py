@@ -12,6 +12,9 @@ class NZGSEffect(inkex.Effect,object):
     DEBUG_PRINT = False
 
     def __init__(self):
+        self.NSS = {
+            u'nzgs' :u'http://inkscape.speak.geek.nz/xmlns/nzgs'
+        }
         inkex.Effect.__init__(self)
 
     def debug(self, arg):
@@ -43,21 +46,30 @@ class NZGSEffect(inkex.Effect,object):
     def get_attr(self, obj, attr):
         try:
             ns,attr = attr.split(':')
-            attr = inkex.addNS(attr, ns)
+            attr = self.addNS(attr, ns)
         except ValueError, e:
             pass
         return obj.attrib[attr]
 
+    def addNS(self, tag, ns=None):
+        val = tag
+        if ns!=None and len(ns)>0 and len(tag)>0 and tag[0]!='{':
+            if inkex.NSS.has_key(ns):
+                val = "{%s}%s" % (inkex.NSS[ns], tag)
+            elif self.NSS.has_key(ns):
+                val = "{%s}%s" % (self.NSS[ns], tag)
+        return val
+
     def set_attr(self, obj, attr, val):
         try:
             ns,attr = attr.split(':')
-            attr = inkex.addNS(attr, ns)
+            attr = self.addNS(attr, ns)
         except ValueError, e:
             pass
         obj.attrib[attr] = str(val)
 
     def get_layer_name(self, layer):
-        return layer.attrib[inkex.addNS('label', 'inkscape')]
+        return layer.attrib[self.addNS('label', 'inkscape')]
 
     def get_selector_path(self, item):
         path = [self.friendly_tag(ans.tag) for ans in item.iterancestors()]
@@ -70,7 +82,8 @@ class NZGSEffect(inkex.Effect,object):
         return ' > '.join(path)
 
     def is_toplevel_layer(self, layer):
-        return layer.getparent and layer.getparent().tag == inkex.addNS('svg','svg')
+        return layer.getparent and layer.getparent().tag == self.addNS('svg','svg')
+
 
     def modify_layer_style(self, layer, style):
         if (layer.attrib.has_key('style')):
@@ -89,7 +102,7 @@ class NZGSEffect(inkex.Effect,object):
         self.modify_layer_style(layer, {"opacity": opacity})
 
     def set_layer_lock(self, layer, unlock=False):
-        insensitive = inkex.addNS('insensitive', 'sodipodi')
+        insensitive = self.addNS('insensitive', 'sodipodi')
         if unlock:
             try:
                 del layer.attrib[insensitive]
