@@ -5,6 +5,8 @@
 - [Onionskin plugin](#onionskin-plugin)
 - [Add frame plugin](#add-frame-plugin)
 - [Layers actions plugin](#layers-actions-plugin)
+- [Preview plugin](#preview-plugin) **(EXPERIMENTAL)**
+- [Set preview attributes plugin](#set-preview-attributes-plugin) **(EXPERIMENTAL)**
 
 ## Installation
 
@@ -31,6 +33,12 @@ Copy the files shown under *Requirements*, then copy files for the plugins you w
 #### Layers actions
 - `nzgslayer.py`
 - `nzgslayer.inx`
+
+#### Others (experimental)
+- `nzgspreview.py`
+- `nzgspreview.inx`
+- `nzgscustom.py`
+- `nzgscustom.inx`
 
 See also [Keyboard shortcuts](#user-content-keyboard-shortcuts)
 
@@ -68,6 +76,16 @@ This allows for some batch-operations on layers.  Handy when you are preparing a
 ## Add frame plugin
 
 This is a shortcut plugin to duplicate the topmost layer of your document, increment it's label (assuming it's a frame number), and setup onion-skinning.
+
+## Preview plugin
+This works in conjunction with the [**inkscape_reanimator**](http://github.com/lingo/inkscape_reanimator) program.
+The idea is to be able to preview your animation in progress via this program.
+However, this is all in very early development.  Any comments or problems, please post to the [Issues page](https://github.com/lingo/inkscape_reanimator/issues).
+This plugin will temporarily show and make opaque all layers except those you have marked using the plugin below.
+
+## Set preview attributes plugin
+This works with the Preview plugin.  The idea is that you can set a certain layer (or layers) to be a background for your animation.  The inkscape_reanimator will respect this and maintain this layer visible while animating the other layers.
+You may also set a layer as invisible for the animation and the inkscape_reanimator will keep it hidden.
 
 ## Keyboard shortcuts
 
