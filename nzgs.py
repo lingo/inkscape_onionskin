@@ -84,6 +84,10 @@ class NZGSEffect(inkex.Effect,object):
     def is_toplevel_layer(self, layer):
         return layer.getparent and layer.getparent().tag == self.addNS('svg','svg')
 
+    def get_layer_style(self, layer):
+        if (layer.attrib.has_key('style')):
+            return simplestyle.parseStyle(layer.attrib['style'])
+        return {}
 
     def modify_layer_style(self, layer, style):
         if (layer.attrib.has_key('style')):
@@ -101,6 +105,12 @@ class NZGSEffect(inkex.Effect,object):
         self.debug('set_layer_opacity "%s" %.2f' % (self.get_layer_name(layer), opacity))
         self.modify_layer_style(layer, {"opacity": opacity})
 
+    def get_layer_lock(self, layer):
+        insensitive = self.addNS('insensitive', 'sodipodi')
+        if layer.attrib.has_key(insensitive):
+            return layer.attrib[insensitive]
+        return False
+
     def set_layer_lock(self, layer, unlock=False):
         insensitive = self.addNS('insensitive', 'sodipodi')
         if unlock:
@@ -111,6 +121,12 @@ class NZGSEffect(inkex.Effect,object):
         else:
             layer.attrib[insensitive] = 'true'
 
+
+    def get_layer_hidden(self, layer):
+        style = self.get_layer_style(layer)
+        if style.has_key('display'):
+            return style['display'] == 'none'
+        return False
 
     def hide_layer(self, layer):
         self.debug('hide_layer "%s"' % self.get_layer_name(layer))
