@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Set layer options for preview</_name>
+  <id>nz.geek.speak.inkscape.custom</id>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+  <dependency type="executable" location="extensions">nzgs.py</dependency>
+  <dependency type="executable" location="extensions">nzgscustom.py</dependency>
+  <param name="background" type="boolean" _gui-text="Set this layer as background layer for the animation">false</param>
+  <param name="invisible" type="boolean" _gui-text="Set this layer as invisible in animation">true</param>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+      <effects-menu>
+        <submenu _name="Animation"/>
+      </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">nzgscustom.py</command>
+  </script>
+</inkscape-extension>
