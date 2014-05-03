@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Preview</_name>
+  <id>nz.geek.speak.inkscape.preview</id>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+  <dependency type="executable" location="extensions">nzgs.py</dependency>
+  <dependency type="executable" location="extensions">nzgspreview.py</dependency>
+  <param name="preview-path" type="string">/home/lucas/code/inkscape/inkscape_reanimator/build/releases/inkscape_reanimator/linux64/inkscape_reanimator/inkscape_reanimator</param>
+  <effect needs-live-preview="false">
+    <object-type>all</object-type>
+      <effects-menu>
+        <submenu _name="Animation"/>
+      </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">nzgspreview.py</command>
+  </script>
+</inkscape-extension>
